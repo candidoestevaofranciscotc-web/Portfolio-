@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projeto — Cândido Estêvão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- A navbar é igual à do index, mas o logo leva de volta ao início -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">Cândido Estêvão</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">Sobre</a></li>
+      <li><a href="index.html#work">Trabalhos</a></li>
+      <li><a href="index.html#contact">Contato</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- O conteúdo do projeto é injetado aqui pelo JavaScript -->
+  <div id="project-content"></div>
+
+  <footer>
+    <span>© 2025 Cândido Estêvão</span>
+    <span>Design & Motion — Luanda, Angola</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
