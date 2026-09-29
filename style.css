@@ -843,11 +843,12 @@ footer span { font-size: 0.72rem; color: var(--text-tertiary); letter-spacing: 0
   position: relative;
 }
 
-/* Os 4 rácios suportados */
-.ratio-16-9  { aspect-ratio: 16 / 9; }
-.ratio-4-3   { aspect-ratio: 4 / 3; }
-.ratio-1-1   { aspect-ratio: 1 / 1; }
-.ratio-9-16  { aspect-ratio: 9 / 16; }
+/* A proporção de cada item já não vem de uma classe fixa — vem
+   directamente do atributo "style" (aspect-ratio) que o script.js
+   escreve com base no campo "ratio" de cada imagem/vídeo, ou,
+   quando esse campo não existe, é detectada automaticamente a
+   partir do ficheiro real. Isto permite QUALQUER proporção,
+   não só um conjunto pré-definido. */
 
 /* Imagens e vídeos preenchem o contentor sem distorcer */
 .gallery-item img,
@@ -873,27 +874,22 @@ footer span { font-size: 0.72rem; color: var(--text-tertiary); letter-spacing: 0
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4px;
+  align-items: start; /* impede que imagens de alturas diferentes sejam esticadas */
   margin-bottom: 80px;
 }
 
-/* Todas as imagens 1:1 ficam lado a lado, 2 por linha */
-.gallery-item.ratio-1-1 {
-  grid-column: span 1;
-}
-
-/* 16:9 e 4:3 continuam a ocupar largura toda */
-.gallery-item.ratio-16-9,
-.gallery-item.ratio-4-3 {
+/* Itens "largos" (paisagem) ocupam a largura toda da grelha */
+.gallery-item.span-2 {
   grid-column: span 2;
 }
 
-/* 9:16 lado a lado */
-.gallery-item.ratio-9-16 {
+/* Itens quadrados ou "altos" (retrato) ficam lado a lado, 2 por linha */
+.gallery-item.span-1 {
   grid-column: span 1;
 }
 
 /* ——— CAPA DO PROJETO ———
-   Também usa os rácios, aplicados diretamente */
+   A proporção vem do atributo "style" (ver nota acima) */
 .project-hero-cover {
   width: 100%;
   overflow: hidden;
@@ -901,6 +897,7 @@ footer span { font-size: 0.72rem; color: var(--text-tertiary); letter-spacing: 0
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .project-hero-cover img,
@@ -921,8 +918,8 @@ footer span { font-size: 0.72rem; color: var(--text-tertiary); letter-spacing: 0
   color: var(--text-tertiary);
 }
 
-/* Limita a largura da capa 1:1 para não ficar enorme */
-.project-hero-cover.ratio-1-1 {
+/* Limita a largura de capas quadradas/retrato para não ficarem enormes */
+.project-hero-cover.cover-narrow {
   max-width: 600px;
   margin: 0 auto;
 }
@@ -932,10 +929,120 @@ footer span { font-size: 0.72rem; color: var(--text-tertiary); letter-spacing: 0
   .project-gallery {
     grid-template-columns: 1fr;
   }
-  .gallery-item.ratio-16-9,
-  .gallery-item.ratio-4-3,
-  .gallery-item.ratio-9-16,
-  .gallery-item.ratio-1-1 {
+  .gallery-item.span-1,
+  .gallery-item.span-2 {
     grid-column: span 1;
   }
+}
+
+/* =============================================
+   DICA "CLIQUE PARA AMPLIAR"
+============================================= */
+.gallery-item,
+.project-hero-cover {
+  cursor: zoom-in;
+}
+
+.expand-hint {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(240,237,232,0.3);
+  border-radius: 50%;
+  background: rgba(8,8,8,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.gallery-item:hover .expand-hint,
+.project-hero-cover:hover .expand-hint {
+  opacity: 1;
+}
+
+/* =============================================
+   LIGHTBOX — visualização da imagem completa
+   object-fit: contain garante que a imagem inteira
+   é sempre visível, seja qual for a sua proporção.
+============================================= */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8,8,8,0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.lightbox-img {
+  max-width: 88vw;
+  max-height: 86vh;
+  object-fit: contain;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.35s, transform 0.35s;
+}
+.lightbox.open .lightbox-img {
+  opacity: 1;
+  transform: scale(1);
+}
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(17,17,17,0.6);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: none;
+  transition: border-color 0.3s, color 0.3s;
+}
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.lightbox-close { top: 28px; right: 28px; }
+.lightbox-prev  { left: 28px; top: 50%; transform: translateY(-50%); }
+.lightbox-next  { right: 28px; top: 50%; transform: translateY(-50%); }
+.lightbox-counter {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 768px) {
+  .expand-hint { display: none; } /* sem hover no telemóvel, o ícone não é útil */
+  .lightbox-close { top: 16px; right: 16px; width: 38px; height: 38px; }
+  .lightbox-prev { left: 12px; width: 38px; height: 38px; }
+  .lightbox-next { right: 12px; width: 38px; height: 38px; }
 }

@@ -14,10 +14,22 @@
 //       └── SM05/ → 01.png ... 08.png
 //
 // A capa de cada projecto é a primeira imagem (01.png).
-// Todas as imagens são formato 1:1 (quadrado).
 //
 // Para adicionar um novo projecto, copia um bloco,
 // atribui o próximo id, actualiza o título e a pasta.
+//
+// ——— CAMPO "ratio" (agora livre, não só 1:1 ou 9:16) ———
+// Podes escrever QUALQUER proporção, no formato "largura/altura":
+//   '1/1'   → quadrado (post normal)
+//   '4/5'   → retrato Instagram
+//   '9/16'  → story/reel
+//   '3/2'   → foto paisagem
+//   '2/3'   → retrato
+//   '21/9'  → banner ultra-largo
+//   ...ou qualquer outra proporção real da tua imagem.
+// Se não souberes a proporção exacta, deixa o campo "ratio" de fora
+// (ou como '') que o site deteta automaticamente o tamanho real do
+// ficheiro e ajusta a caixa sozinho — sem cortar nada.
 
 const projects = [
   {
@@ -25,7 +37,7 @@ const projects = [
     type: { pt: 'Design Gráfico', en: 'Graphic Design' },
     title: { pt: 'Social Media flyers', en: 'Social Media flyers' },
     year: '2024 - 2025 - 2026',
-    client: { pt: 'Bc Studius agencia', en: 'Bc Studius agencia' },
+    client: { pt: 'Bc Studius agencia - Okoku - Rufia - Indrive - KFC', en: 'Bc Studius agencia - Okoku - Rufia - Indrive - KFC' },
     tools: ['Ibis Paint X', 'Photoshop'],
     description: {
       pt: 'Aqui você encontrara uma série de flyers para social media.',
@@ -57,10 +69,18 @@ const projects = [
       { type: 'image', src: 'images/1-SM/SM05/02.webp', ratio: '1/1' },
       { type: 'image', src: 'images/1-SM/SM05/03.webp', ratio: '1/1' },
       { type: 'image', src: 'images/1-SM/SM05/04.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/1-SM/SM05/05.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/1-SM/SM05/06.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/1-SM/SM05/07.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/1-SM/SM05/08.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/1-SM/SM06/01.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM06/02.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM06/03.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM06/04.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM07/01.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM07/02.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM07/03.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM07/04.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM08/01.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM08/02.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM08/03.webp', ratio: '2160/2700' },
+      { type: 'image', src: 'images/1-SM/SM08/04.webp', ratio: '2160/2700' },
     ],
     icon: 'images/icon-grafico.png'
   },
@@ -69,78 +89,38 @@ const projects = [
     type: { pt: 'Branding', en: 'Branding' },
     title: { pt: 'Identidade Visual', en: 'Visual Identity' },
     year: '2026',
-    client: { pt: 'Bc Studius agencia', en: 'Bc Studius agencia' },
-    tools: ['Google Fx', 'Illustrator'],
+    client: { pt: 'Okoku', en: 'Okoku' },
+    tools: ['Ibis Paint X','Google Fx'],
     description: {
       pt: 'Aqui você encontrara tudo sobre identidade visual e Branding.',
       en: 'Here you’ll find everything about visual identity and branding.'
     },
-    cover: { src: 'images/2-BD/00.webp', ratio: '16/9' },
+    cover: { src: 'images/2-IDV/00.webp', ratio: '16/9' },
     gallery: [
-      { type: 'image', src: 'images/2-BD/BD00/01.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/02.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/03.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/04.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/05.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/06.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/07.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/08.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/09.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/10.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/11.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/12.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/13.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/14.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/15.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/16.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/17.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/18.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/2-BD/BD00/19.webp', ratio: '16/9' },
+      { type: 'image', src: 'images/2-IDV/IDV00/01.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/02.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/03.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/04.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/05.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/06.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/07.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/08.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/09.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/10.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/11.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/12.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/13.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/14.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/15.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/16.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/17.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/18.webp', ratio: '1/1' },
+      { type: 'image', src: 'images/2-IDV/IDV00/19.webp', ratio: '16/9' },
 
     ],
-    icon: 'images/icon-grafico.png'
+
   },
-  {
-    id: 2,
-    type: { pt: 'Thumbnail', en: 'Thumbnail' },
-    title: { pt: 'Thumbnail', en: 'Thumbnail' },
-    year: '2024',
-    client: { pt: 'Bc Studius agencia', en: 'Bc Studius agencia' },
-    tools: ['Ibis Paint X', 'Photoshop'],
-    description: {
-      pt: 'Aqui você encontrara uma série de thumbnails para o Youtube.',
-      en: 'Here you’ll find a series of YouTube thumbnails.'
-    },
-    cover: { src: 'images/3-TB/00.webp', ratio: '16/9' },
-    gallery: [
-      { type: 'image', src: 'images/3-TB/TB00/00.webp', ratio: '16/9' },
-      { type: 'image', src: 'images/3-TB/TB00/01.webp', ratio: '16/9' },
-      { type: 'image', src: 'images/3-TB/TB00/02.webp', ratio: '16/9' },
-      { type: 'image', src: 'images/3-TB/TB00/03.webp', ratio: '16/9' },
-      { type: 'image', src: 'images/3-TB/TB00/04.webp', ratio: '16/9' },
-    ],
-    icon: 'images/icon-grafico.png'
-  },
-  {
-    id: 3,
-    type: { pt: 'Modelagem 3D', en: '3D Modeling' },
-    title: { pt: 'Modelagem 3D', en: '3D Modeling' },
-    client: { pt: 'Nenhum', en: 'None' },
-    year: '2025',
-    tools: ['Nomade Sculpt', 'Blender'],
-    description: {
-      pt: 'Aqui você encontrará um pouco do meu trabalho como artista 3D.',
-      en: 'Here you’ll find some of my work as a 3D artist.'
-    },
-     cover: { src: 'images/4-3D/00.webp', ratio: '1/1' },
-    gallery: [
-      { type: 'image', src: 'images/4-3D/3D00/01.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/4-3D/3D00/02.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/4-3D/3D00/03.webp', ratio: '1/1' },
-      { type: 'image', src: 'images/4-3D/3D00/04.webp', ratio: '1/1' },
-    ],
-    icon: 'images/icon-grafico.png'
-  },
+
 ];
 
 
@@ -311,56 +291,143 @@ function initProjectPage() {
   }
 
   let lang = 'pt';
+  let lightboxImages = []; // reconstruída a cada render()
 
-  // ——— GERA O HTML DE UM ITEM DA GALERIA ———
-  // Recebe um objeto { type, src, ratio } e devolve o HTML certo
-  function renderMediaItem(item) {
-    // ratio ex: '16/9' → transformamos em classe CSS: 'ratio-16-9'
-    const ratioClass = 'ratio-' + item.ratio.replace('/', '-');
+  // ——— RÁCIOS LIVRES ———
+  // Aceita '4/5', '4:5' ou um número decimal (ex: '0.8').
+  // Devolve null se não houver valor — nesse caso o rácio é
+  // detectado automaticamente a partir do ficheiro real.
+  function parseRatio(str) {
+    if (!str) return null;
+    const clean = String(str).replace(':', '/').trim();
+    const parts = clean.split('/').map(Number);
+    if (parts.length === 2 && parts[0] > 0 && parts[1] > 0) return parts;
+    const num = parseFloat(clean);
+    return num > 0 ? [num, 1] : null;
+  }
 
-    if (item.type === 'video') {
-      // Vídeo mp4: autoplay silencioso em loop (comportamento de motion reel)
-      // controls = barra de play/pause visível
-      // muted é obrigatório para autoplay funcionar no browser
-      return `
-        <div class="gallery-item ${ratioClass}">
-          <video
-            src="${item.src}"
-            autoplay
-            muted
-            loop
-            playsinline
-            controls
-          ></video>
-        </div>
-      `;
+  // Aplica o rácio (w/h) a um contentor já inserido no DOM e decide
+  // se ele deve ocupar 1 ou 2 colunas da grelha (largo → 2 colunas).
+  function applyRatioValues(container, w, h) {
+    container.style.aspectRatio = `${w} / ${h}`;
+    const wide = (w / h) >= 1.15;
+    container.classList.remove('span-1', 'span-2', 'cover-wide', 'cover-narrow');
+    if (container.classList.contains('gallery-item')) {
+      container.classList.add(wide ? 'span-2' : 'span-1');
     } else {
-      return `
-        <div class="gallery-item ${ratioClass}">
-          <img src="${item.src}" alt="${project.title[lang]}">
-        </div>
-      `;
+      container.classList.add(wide ? 'cover-wide' : 'cover-narrow');
     }
   }
+
+  // ——— GERA O HTML DE UMA IMAGEM DA GALERIA ———
+  function renderImageItem(item, lightboxIdx) {
+    const parsed = parseRatio(item.ratio);
+    const styleAttr = parsed ? ` style="aspect-ratio:${parsed[0]}/${parsed[1]}"` : '';
+    const spanClass = parsed ? ((parsed[0] / parsed[1]) >= 1.15 ? 'span-2' : 'span-1') : 'span-1';
+    const autoAttr = parsed ? '' : ' data-auto-ratio="true"';
+    return `
+      <div class="gallery-item ${spanClass}"${styleAttr}${autoAttr} data-lightbox-index="${lightboxIdx}">
+        <img src="${item.src}" alt="${project.title[lang]}" loading="lazy">
+        <span class="expand-hint">⤢</span>
+      </div>
+    `;
+  }
+
+  // ——— GERA O HTML DE UM VÍDEO DA GALERIA ———
+  function renderVideoItem(item) {
+    const parsed = parseRatio(item.ratio);
+    const styleAttr = parsed ? ` style="aspect-ratio:${parsed[0]}/${parsed[1]}"` : '';
+    const spanClass = parsed ? ((parsed[0] / parsed[1]) >= 1.15 ? 'span-2' : 'span-1') : 'span-2';
+    const autoAttr = parsed ? '' : ' data-auto-ratio="true"';
+    // Vídeo mp4: autoplay silencioso em loop (comportamento de motion reel)
+    // controls = barra de play/pause visível (inclui ecrã inteiro nativo)
+    // muted é obrigatório para autoplay funcionar no browser
+    return `
+      <div class="gallery-item ${spanClass}"${styleAttr}${autoAttr}>
+        <video src="${item.src}" autoplay muted loop playsinline controls></video>
+      </div>
+    `;
+  }
+
+  // ——— LIGHTBOX (visualizador de imagem completa) ———
+  // Criado uma única vez; reaproveitado sempre que se clica numa imagem.
+  function createLightbox() {
+    const el = document.createElement('div');
+    el.className = 'lightbox';
+    el.innerHTML = `
+      <button class="lightbox-close" aria-label="Fechar">✕</button>
+      <button class="lightbox-prev" aria-label="Anterior">←</button>
+      <img class="lightbox-img" alt="">
+      <button class="lightbox-next" aria-label="Próxima">→</button>
+      <span class="lightbox-counter"></span>
+    `;
+    document.body.appendChild(el);
+
+    const imgEl = el.querySelector('.lightbox-img');
+    const counterEl = el.querySelector('.lightbox-counter');
+    let current = 0;
+
+    function show(index) {
+      if (!lightboxImages.length) return;
+      current = (index + lightboxImages.length) % lightboxImages.length;
+      imgEl.src = lightboxImages[current];
+      counterEl.textContent = lightboxImages.length > 1 ? `${current + 1} / ${lightboxImages.length}` : '';
+      el.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      el.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    el.querySelector('.lightbox-close').addEventListener('click', close);
+    el.querySelector('.lightbox-next').addEventListener('click', () => show(current + 1));
+    el.querySelector('.lightbox-prev').addEventListener('click', () => show(current - 1));
+    el.addEventListener('click', e => { if (e.target === el) close(); });
+    document.addEventListener('keydown', e => {
+      if (!el.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') show(current + 1);
+      if (e.key === 'ArrowLeft') show(current - 1);
+    });
+
+    return { show, close };
+  }
+
+  const lightbox = createLightbox();
 
   // ——— RENDERIZA A PÁGINA COMPLETA ———
   function render() {
     document.title = `${project.title[lang]} — Cândido Estêvão`;
 
+    // Lista de imagens do lightbox (capa + itens de imagem da galeria, por ordem)
+    lightboxImages = [];
+    if (project.cover.src) lightboxImages.push(project.cover.src);
+
     // Capa do projeto
-    const coverRatioClass = 'ratio-' + (project.cover.ratio || '16/9').replace('/', '-');
+    const coverParsed = parseRatio(project.cover.ratio);
+    const coverStyleAttr = coverParsed ? ` style="aspect-ratio:${coverParsed[0]}/${coverParsed[1]}"` : ' style="aspect-ratio:16/9"';
+    const coverAutoAttr = coverParsed ? '' : ' data-auto-ratio="true"';
+    const coverWideClass = coverParsed ? ((coverParsed[0] / coverParsed[1]) >= 1.15 ? 'cover-wide' : 'cover-narrow') : '';
     const coverHTML = project.cover.src
-      ? `<div class="project-hero-cover ${coverRatioClass}">
+      ? `<div class="project-hero-cover ${coverWideClass}"${coverStyleAttr}${coverAutoAttr} data-lightbox-index="0">
            <img src="${project.cover.src}" alt="${project.title[lang]}">
+           <span class="expand-hint">⤢</span>
          </div>`
-      : `<div class="project-hero-cover ratio-16-9 cover-placeholder">
-           <span>${project.symbol}</span>
+      : `<div class="project-hero-cover cover-placeholder" style="aspect-ratio:16/9">
+           <span>${project.symbol || ''}</span>
          </div>`;
 
-    // Galeria
+    // Galeria — cada imagem recebe o índice que ocupa no lightbox
+    let imgCounter = lightboxImages.length;
     const galleryHTML = project.gallery.length > 0
       ? `<div class="project-gallery">
-           ${project.gallery.map(item => renderMediaItem(item)).join('')}
+           ${project.gallery.map(item => {
+              if (item.type === 'video') return renderVideoItem(item);
+              const idx = imgCounter++;
+              lightboxImages.push(item.src);
+              return renderImageItem(item, idx);
+            }).join('')}
          </div>`
       : '';
 
@@ -423,6 +490,32 @@ function initProjectPage() {
 
       </div>
     `;
+
+    // ——— PÓS-PROCESSAMENTO ———
+    const contentEl = document.getElementById('project-content');
+
+    // Deteta automaticamente o rácio de qualquer item sem "ratio" definido
+    contentEl.querySelectorAll('[data-auto-ratio="true"]').forEach(container => {
+      const media = container.querySelector('img, video');
+      if (!media) return;
+      const measure = () => {
+        const w = media.naturalWidth || media.videoWidth;
+        const h = media.naturalHeight || media.videoHeight;
+        if (w && h) applyRatioValues(container, w, h);
+      };
+      if (media.tagName === 'IMG') {
+        if (media.complete) measure(); else media.addEventListener('load', measure);
+      } else {
+        media.addEventListener('loadedmetadata', measure);
+      }
+    });
+
+    // Clique numa imagem (capa ou galeria) abre o lightbox nessa posição
+    contentEl.querySelectorAll('[data-lightbox-index]').forEach(el => {
+      el.addEventListener('click', () => {
+        lightbox.show(parseInt(el.dataset.lightboxIndex, 10));
+      });
+    });
   }
 
   render();
